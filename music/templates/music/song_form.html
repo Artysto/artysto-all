@@ -1,0 +1,53 @@
+{%extends 'music/base.html' %}
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add a Song</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <span class="text-danger small">{{ field.errors }}</span>
+                                </div>
+                                <label class="control-label col-sm-2" for="song_title">{{ field.label_tag }}</label>
+                                <div class="col-sm-10">{{ field }}</div>
+                            </div>
+                        {% endfor %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>How do I add music?</h3>
+                    <p>First, create a new song by filling out the form on this page. Once a song is created you will be able to enjoy it from anywhere.</p>
+                    <h3>What are some Song file best practices?</h3>
+                    <ul>
+                        <li>Use common audio formats such as .MP3, .WAV, or .OGG</li>
+                        <li>Remain under the 10MB limit.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
