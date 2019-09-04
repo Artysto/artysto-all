@@ -10,3 +10,37 @@
 body{
     background: black;
 }
+
+/* Style buttons */
+
+#about{
+    background-color: White;
+    font-size: 18px;
+    padding: 30px;
+    margin: auto;
+}
+
+#resume{
+      position: relative;
+      left: 35%;
+      padding: 12px 30px;
+}
+
+#resume .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 15px;
+  ]
+
+}
+
+/* Darker background on mouse-over */
+#resume .btn:hover {
+  background-color: RoyalBlue;
+}
+
+
+

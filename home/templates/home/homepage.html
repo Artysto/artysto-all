@@ -4,6 +4,7 @@
     {% load staticfiles %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'home/style.css' %}" type="text/css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,7 +54,36 @@
         </div>
     </div>
 </nav>
+<body >
+<div id="about" >
+    <h2>Who Am I?</h2>
+    <p>
+        I would like to think I am a multipotentialite (or in common speak a jack of all trade).
+        I have always been interested in how things work, so if that meant I had to work on
+        a single physics problem for three weeks I would do it. I have opted-in in courses as
+        diverse as Vernacular Architecture, Accounting and Finance, Herbal Biotechnology and
+        for a fourth of a semester, sneaked into a Compilers Design class.
+    </p>
+    <p>
+        I have worked on projects and given presentations on topics like Blockchain in Supply Chain
+        Management, Autonomous Vehicles, Detection of Gravitational waves, Architectural styles in
+        the Himalayas and so on.
+    </p>
+    <p>
+        I have lead teams in every year of my college life, at times multiple within a semester.
+        I did miss out on several opportunity since college due to health issues but am now working
+        hard to play catch up. If you are looking for someone who can devote themselves completely
+        to the problem at hand, look no further.
+    </p>
+</div>
 
-{% block body%}
+<div id="resume" >
+    <a target="_blank" href= 'media/Shailendra_Pandey-Resume-NITC.pdf' >
+        <button class="btn"><i class="fa fa-download"></i> Download Resume </button>
+    </a>
+</div>
+
+</body>
+{% block varbody%}
 {% endblock %}
 </html>
