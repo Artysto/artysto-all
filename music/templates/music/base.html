@@ -45,9 +45,11 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
                 <li><a href='{%url 'music:add-album' %}'>
                     <span class='glyphicon glyphicon-upload' aria-hidden='true' ></span>&nbsp;Add Albums</a>
                 </li>
+                {% endif %}
                 {% if not request.user.is_authenticated %}
                     <li><a href='{%url 'home:login' %}'>
                         <span class='glyphicon glyphicon-off' aria-hidden='true' ></span>&nbsp; Login</a>
