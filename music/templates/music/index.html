@@ -1,5 +1,5 @@
 {% extends 'music/base.html' %}
-
+{% block title %} <title>Albums</title> {% endblock %}
 {% block body %}
 <body>
 {% for album in all_album %}
@@ -16,6 +16,7 @@
                             <a href="{% url 'music:album_id' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
 
                             <!-- Delete Album -->
+                            {% if request.user.is_authenticated %}
                             <form action="{% url 'music:delete-album' album.id%}" method="post" style="display: inline;">
                                 {% csrf_token %}
                                 <input type="hidden" name="album_id" value="{{ album.id }}" />
@@ -23,6 +24,7 @@
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>
+                            {% endif %}
 
                             <!-- Favorite Album -->
                             <a href="{% url 'music:favourite' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
