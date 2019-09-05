@@ -20,11 +20,7 @@ body{
     margin: auto;
 }
 
-#resume{
-      position: relative;
-      left: 35%;
-      padding: 12px 30px;
-}
+
 
 #resume .btn {
   background-color: DodgerBlue;
@@ -33,6 +29,7 @@ body{
   padding: 12px 30px;
   cursor: pointer;
   font-size: 15px;
+  margin-left: 45%;
   ]
 
 }

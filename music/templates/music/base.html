@@ -48,9 +48,16 @@
                 <li><a href='{%url 'music:add-album' %}'>
                     <span class='glyphicon glyphicon-upload' aria-hidden='true' ></span>&nbsp;Add Albums</a>
                 </li>
-                <li><a href='{%url 'home:home' %}'>
-                    <span class='glyphicon glyphicon-off' aria-hidden='true' ></span>&nbsp; Logout</a>
-                </li>
+                {% if not request.user.is_authenticated %}
+                    <li><a href='{%url 'home:login' %}'>
+                        <span class='glyphicon glyphicon-off' aria-hidden='true' ></span>&nbsp; Login</a>
+                    </li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <li><a href='{%url 'home:logout' %}'>
+                        <span class='glyphicon glyphicon-off' aria-hidden='true' ></span>&nbsp; Logout</a>
+                    </li>
+                {% endif %}
             </ul>
 
         </div>

@@ -1,7 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.views import LoginView, LogoutView
 
 # Create your views here.
 
 
 def home(request):
     return render(request, 'home/homepage.html')
+
+
+class Login(LoginView):
+    success_url = "home:home"
+
+
+class Logout(LogoutView):
+    pass
+
+
+
+
+
+
+
+
