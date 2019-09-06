@@ -10,7 +10,7 @@ def home(request):
 
 
 class Login(LoginView):
-    success_url = "home:home"
+    pass
 
 
 class Logout(LogoutView):
