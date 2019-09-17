@@ -20,6 +20,9 @@ body{
     margin: auto;
 }
 
+#resume {
+    text-align: center;
+}
 
 
 #resume .btn {
@@ -29,14 +32,15 @@ body{
   padding: 12px 30px;
   cursor: pointer;
   font-size: 15px;
-  margin-left: 45%;
-  ]
-
 }
 
 /* Darker background on mouse-over */
 #resume .btn:hover {
   background-color: RoyalBlue;
+}
+
+#resume a{
+    display: inline-block;
 }
 
 
