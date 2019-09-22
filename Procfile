@@ -1,1 +1,1 @@
-web: gunicorn pywebsite/wsgi.py
+web: gunicorn pywebsite/wsgi:application
