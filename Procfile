@@ -1,1 +1,1 @@
-web: gunicorn subfolder/yourproject.wsgi
+web: python mange.py runserver
