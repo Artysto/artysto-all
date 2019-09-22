@@ -27,7 +27,7 @@ SECRET_KEY = '6m0-dqeszq*o!%dd66t^_4e=(8%s28_83p-iw8$2sq_^*c_hs*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['artysto.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['artysto.pythonanywhere.com', 'artysto.herokuapp.com', 127.0.0.1']
 
 
 # Application definition
