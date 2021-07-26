@@ -1,0 +1,47 @@
+.navbar{
+    border-radius: 0px;
+}
+
+.navbar-brand{
+    font-family: 'Marck Script', cursive;
+    font-size: 35px;
+}
+
+body{
+    background: black;
+}
+
+/* Style buttons */
+
+#about{
+    background-color: White;
+    font-size: 18px;
+    padding: 30px;
+    margin: auto;
+}
+
+#resume {
+    text-align: center;
+}
+
+
+#resume .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Darker background on mouse-over */
+#resume .btn:hover {
+  background-color: RoyalBlue;
+}
+
+#resume a{
+    display: inline-block;
+}
+
+
+

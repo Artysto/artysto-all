@@ -1,0 +1,12 @@
+.navbar{
+    border-radius: 0px;
+}
+
+.navbar-brand{
+    font-family: 'Marck Script', cursive;
+    font-size: 35px;
+}
+
+body{
+    background: black;
+}
