@@ -7,7 +7,7 @@
     <div class="row">
 
         <div class="col-sm-12">
-
+            {% if song_list %}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table class="table">
@@ -28,7 +28,7 @@
                                     <td>
                                         <a target="_blank" href="{{ song.audio_file.url }}">
                                             <button type="button" class="btn btn-success btn-xs">
-                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                                <span class="glyphicon glyphicon-download"></span>&nbsp; Download
                                             </button>
                                         </a>
                                     </td>
@@ -39,14 +39,30 @@
                                         <a href="{% url 'music:album_id' song.album.id %}">{{ song.album.album_title }}</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'music:favourite' song.album.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
+                                        <a href="{% url 'music:favourite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star{% if song.is_favorite %}-empty{% endif %}"></span></a>
                                     </td>
+				    <td>
+                                    <audio controls="" style="height: 26px;">
+                                        <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                                    </audio>				    
+				    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
+        {% else %}
+         <div class="container">
+            <div class="row">
+                <div id="no-results">
+                <h2>Sorry we couldn't find what you are looking for ...</h2>
+                <h3>Did you really mean - {{ query }} ?</h3>
+                </div>
+            </div>
+         </div>
+
+        {% endif %}
 
         </div>
 

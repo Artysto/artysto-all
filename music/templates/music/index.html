@@ -2,40 +2,51 @@
 {% block title %} <title>Albums</title> {% endblock %}
 {% block body %}
 <body>
-{% for album in all_album %}
- <div class="col-sm-4 col-lg-2">
-                    <div class="thumbnail">
-                        <a href="{% url 'music:album_id' album.id %}">
-                            <img src="{{ album.album_logo.url }}" class="img-responsive">
-                        </a>
-                        <div class="caption">
-                            <h4>{{ album.album_title }}</h4>
-                            <h5>{{ album.artist }}</h5>
-
-                            <!-- View Details -->
-                            <a href="{% url 'music:album_id' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
-
-                            <!-- Delete Album -->
-                            {% if request.user.is_authenticated %}
-                            <form action="{% url 'music:delete-album' album.id%}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <input type="hidden" name="album_id" value="{{ album.id }}" />
-                                <button type="submit" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </form>
-                            {% endif %}
-
-                            <!-- Favorite Album -->
-                            <a href="{% url 'music:favourite' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
-                                <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
+{%if all_album %}
+    {% for album in all_album %}
+     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="thumbnail">
+                            <a href="{% url 'music:album_id' album.id %}">
+                                <img src="{{ album.album_logo.url }}" class="img-responsive" style="width:300px;height:300px;">
                             </a>
+                            <div class="caption">
+                                <h4>{{ album.album_title }}</h4>
+                                <h5>{{ album.artist }}</h5>
 
+                                <!-- View Details -->
+                                <a href="{% url 'music:album_id' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                                <!-- Delete Album -->
+                                {% if request.user.is_authenticated %}
+                                <form action="{% url 'music:delete-album' album.id%}" method="post" style="display: inline;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="album_id" value="{{ album.id }}" />
+                                    <button type="submit" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </form>
+                                {% endif %}
+
+                                <!-- Favorite Album 
+                                <a href="{% url 'music:favourite' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
+                                    <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
+                    </a>-->
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
-{%endfor%}
+                    {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+    {%endfor%}
+{% else %}
+ <div class="container">
+    <div class="row">
+        <div id="no-results">
+        <h2>Sorry we couldn't find what you are looking for ...</h2>
+        <h3>Did you really mean - {{ query }} ?</h3>
+        </div>
+    </div>
+ </div>
 
+{% endif %}
 </body>
 {% endblock %}
